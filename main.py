@@ -2,7 +2,7 @@ import socket;
 
 print("Starting")
 serv_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM, proto=0)
-serv_socket.bind(('13.73.158.180', 53210))
+serv_socket.bind((socket.gethostname(), 32225))
 serv_socket.listen(10)
 
 print("Listening...")
@@ -14,4 +14,4 @@ while True:
     print("Recieved: ", data)
     if not data:
         break
-    client_sock.sendall(data)
+    client_sock.sendall("Hello from DreamTeam server!".encode())
